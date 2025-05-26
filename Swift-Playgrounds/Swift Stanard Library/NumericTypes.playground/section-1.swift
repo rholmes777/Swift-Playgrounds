@@ -1,5 +1,5 @@
 // Swift Standard Library - Types - Numeric Types
-
+// TODO: multiple errors
 // Boolean
 var aBool: Bool
 aBool = true

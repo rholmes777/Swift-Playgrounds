@@ -78,6 +78,8 @@ enum UITableViewCellStyle: Int {
 func takesAMutablePointer(x: UnsafePointer<Float>) {
     // Does something
 }
+// TODO: Multiple failures here
+/*
 var x: Float = 0.0
 var p: UnsafePointer<Float> = nil
 var a: [Float] = [1.0, 2.0, 3.0]
@@ -85,6 +87,7 @@ takesAMutablePointer(nil)
 takesAMutablePointer(p)
 takesAMutablePointer(&x)
 takesAMutablePointer(&a)
+*/
 
 /*
 func takesAMutablePointer(x: UnsafePointer<Type>) {
@@ -105,9 +108,12 @@ var b: [Int] = [1, 2, 3]
 //  - An in-out expression whose operand is an lvalue of type Type, which is passed as the address of the lvalue
 //  - A Type[] value, which is passed as a pointer to the start of the array, and lifetime-extended for the duration of the call
 
-func takesAMutableVoidPointer(x:UnsafeMutablePointer<Void>) {
+func takesAMutableVoidPointer(x:UnsafeMutableRawPointer) {
     
 }
+// TODO: Multiple failures here
+/*
+
 var x2: Float = 0.0, y2: Int = 0
 var p2: UnsafeMutablePointer<Float> = nil, q2: UnsafeMutablePointer<Int> = nil
 var a2: [Float] = [1.0, 2.0, 3.0], b2: [Int] = [1,2,3]
@@ -118,7 +124,7 @@ takesAMutableVoidPointer(&x2)
 takesAMutableVoidPointer(&y2)
 takesAMutableVoidPointer(&a2)
 takesAMutableVoidPointer(&b2)
-
+*/
 
 
 // AutoreleasingUnsafePointer
@@ -130,10 +136,10 @@ func takesAnAutoreleasingPointer(x: AutoreleasingUnsafeMutablePointer<NSDate?>) 
     /* ... */
 }
 var z: NSDate? = nil
-var r: AutoreleasingUnsafeMutablePointer<NSDate?> = nil
-takesAnAutoreleasingPointer(nil)
-takesAnAutoreleasingPointer(r)
-takesAnAutoreleasingPointer(&z)
+var r: AutoreleasingUnsafeMutablePointer<NSDate?>? = nil
+//takesAnAutoreleasingPointer(x: nil)
+//takesAnAutoreleasingPointer(x: r!) // execution fails
+takesAnAutoreleasingPointer(x: &z)
 
 
 // Global Constants

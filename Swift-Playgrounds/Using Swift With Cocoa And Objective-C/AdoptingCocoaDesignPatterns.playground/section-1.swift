@@ -35,14 +35,15 @@ myWindow.delegate = MyDelegate()
 //  When you need to report the reason for the error, you can add to the function an NSError out parameter of type NSErrorPointer. This type is roughly equivalent to Objective-C’s NSError **. You can use the prefix & operator to pass in a reference to an optional NSError type as an NSErrorPointer object, as shown in the code listing below.
 /*
 var writeError: NSError?
-let written = myString.writeToFile(path, atomically: false, encoding: NSUTF8StringEncoding, error: &writeError)
+let myString = "Foo"
+// TODO: Fix the call to writeToFile() - extra arg 'error'
+let written = myString.writeToFile("/dev/null/bogus/path/to/nowhere/", atomically: false, encoding: NSUTF8StringEncoding, error: &writeError)
 if !written {
     if let error = writeError {
-        println("write failure: \(error.localizedDescription)")
+        print("write failure: \(error.localizedDescription)\n")
     }
 }
 */
-
 
 // Target-Action
 // Basically the same as in Objective-C

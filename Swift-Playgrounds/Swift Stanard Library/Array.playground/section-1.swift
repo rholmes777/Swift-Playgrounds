@@ -5,8 +5,8 @@
 var emptyArray = Array<Int>()
 var equivilentEmptyArray = [Int]()
 
-let numericArray = Array(count: 3, repeatedValue: 42)
-let stringArray = Array(count: 2, repeatedValue: "Hello")
+let numericArray = Array(repeating: 42, count: 3)
+let stringArray = Array(repeating: "Hello", count: 2)
 
 
 // Accessing Array Elements
@@ -50,13 +50,13 @@ array
 //constantArray.append("another")
 
 array = [1, 2, 3]
-array.insert(0, atIndex: 0)
+array.insert(0, at: 0)
 array
 // The index must be less than or equal to the number of items in the collection
 //array.insert(6, atIndex: 6)
 // You can't insert into an array that was initialised with let
 
-let removed = array.removeAtIndex(0)
+let removed = array.remove(at: 0)
 array
 // The index must be valid
 // You can't remove from an array that was created with let
@@ -72,7 +72,7 @@ let count = array.count
 array
 // Unless you specify otherwise, the underlying backing storage will be cleared
 array = [0, 1, 2, 3]
-array.removeAll(keepCapacity: true)
+array.removeAll(keepingCapacity: true)
 array
 
 array.reserveCapacity(10)
@@ -111,7 +111,7 @@ let descendingArray = arrayToSort.sorted { $1 < $0 }
 descendingArray
 
 sortedArray
-let reversedArray = sortedArray.reverse()
+let reversedArray = sortedArray.reversed()
 reversedArray
 
 let filteredArray = sortedArray.filter { $0 % 2 == 0 }

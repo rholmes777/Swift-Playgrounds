@@ -18,7 +18,7 @@ let color = UIColor(red: 0.5, green: 0.0, blue: 0.5, alpha: 1.0)
 if let image = UIImage(contentsOfFile: "MyImage.png") {
     print(image)
 } else {
-    print("UIImage initialization failed")
+    print("UIImage initialization failed") // TODO: We hit the failure
 }
 
 
